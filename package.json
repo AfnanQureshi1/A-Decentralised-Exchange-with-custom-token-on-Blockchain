@@ -11,7 +11,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@openzeppelin/contracts": "^4.3.2",
-    "@truffle/hdwallet-provider": "1.1.0",
+    "@truffle/hdwallet-provider": "^1.1.0",
     "apexcharts": "3.6.3",
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
