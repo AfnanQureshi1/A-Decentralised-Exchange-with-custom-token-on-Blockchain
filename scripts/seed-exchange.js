@@ -138,11 +138,3 @@ module.exports = async function(callback) {
   callback()
 }
 
-function printNumber(number)
-{
-	console.log( "start " + number)
-	if(num > 5) continue
-	console.log("End " + number)	
-}
-
-printNumber(10)
