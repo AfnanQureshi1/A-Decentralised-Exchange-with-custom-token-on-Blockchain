@@ -153,6 +153,6 @@
     cursor: pointer;
   }
   
-  .card .card-body .card-link{
-    color: yellow
-  }
+ .newlink{
+  color:green;
+ }

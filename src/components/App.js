@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
 import './App.css';
 import Web3 from "web3";
-
+import Token from '../abis/Token.json'
 
 
 class App extends Component {
   componentWillMount(){
-    console.log("hi")
+   // console.log("hi just checking")
      this.loadBlockchainData()
   }
   async loadBlockchainData(){
     const web3 = new Web3(Web3.givenProvider || 'http://localhost:8545')
-    console.log("web3" , web3)
+
+    const network = await web3.eth.net.getNetworkType();
+    const networkId = await web3.eth.net.getId();
+    //console.log('networkId',networkId);
+     //console.log('networks', networks);
+    //console.log("accounts" ,accounts )
+    //console.log('token', Token)
+    
+    const accounts = await web3.eth.getAccounts();
+    //const abi = Token.abi;
+    const networks = Token.networks
+    // console.log('abi', Token.abi)
+    // console.log('address', Token.networks[networkId].address)
+    const token = new web3.eth.Contract(Token.abi, Token.networks[networkId].address)    
+    //console.log('token', token)
+    const totalSupply = await token.methods.totalSupply().call()
+    console.log("totalSupply", totalSupply)
+  
   }
   render() {
     return (
@@ -24,13 +41,13 @@ class App extends Component {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link" href="#">Link 1</a>
+                <a className="nav-link" href="/#">Link 1</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Link 2</a>
+                <a className="nav-link" href="/#">Link 2</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Link 3</a>
+                <a className="nav-link" href="/#">Link 3</a>
               </li>
             </ul>
           </div>
